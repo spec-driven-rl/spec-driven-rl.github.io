@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXEE17ZF5T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QXEE17ZF5T');
+    </script>
+
+    <style type="text/css">
+    .tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;margin:0px auto;}
+    .tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+      font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+      font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-dujc{border-color:#000000;font-family:Arial, Helvetica, sans-serif !important;font-size:18px;text-align:center;
+      vertical-align:top}
+    .tg {margin-left: auto;margin-right: auto;}
+    </style>
+
+
+    
+
+    <title>Conformal Temporal Logic Planning using Large Language Models: Knowing When to Do What and When to Ask for Help</title>
+    <link rel="icon" type="image/png" href="img/wustl.png">
+
+    <meta name="description" content="Conformal Temporal Logic Planning using Large Language Models: Knowing When to Do What and When to Ask for Help">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+	
+    <style>
+        .nav-pills {
+          position: relative;
+          display: inline;
+        }
+        .imtip {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="main">
+        <div class="row mt-4">
+            <h2 class="col-md-12 text-center">
+                <b><font size="+6">Conformal Temporal Logic Planning using Large Language Models</font></b>: </br> Knowing When to Do What and When to Ask for Help </br> 
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                <br>
+                <li><a href="https://wonggwan.github.io">Jun Wang</a></li>
+                <li><a href="https://ch.linkedin.com/in/jiaming-tong-0a0b3b110">Jiaming Tong</li>
+                <li><a href="https://tankevin998.github.io/">Kaiyuan Tan</a></li>
+                <li><a href="https://vorobeychik.com/">Yevgeniy Vorobeychik</a></li>
+                <li><a href="https://sites.wustl.edu/kantaroslab/">Yiannis Kantaros</a></li>
+                <br>
+                <br>
+                    <a href="https://wustl.edu/">
+                        <image src="img/washu.png" height="65px"> 
+                        <!-- WashU -->
+                    </a>
+                    &nbsp&nbsp&nbsp
+                    <a href="https://www.uzh.ch/en.html">
+                        <image src="img/uzh.png" height="45px"> 
+                        <!-- UZH  -->
+                    </a>
+                </ul>
+            </div>
+            <!-- <div class="col-md-12 text-center">
+                <h4>aaa</h4>
+            </div> -->
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-2 text-center">
+                <a href="https://arxiv.org/abs/2309.10092">
+                <image src="img/paper_small.png" height="45px">
+                <h4><strong>Paper</strong></h4>
+                <!-- <h6>Paper (coming soon)</h6> -->
+                </a>
+            </div>
+            <!-- <div class="col-md-2 text-center">
+                <a href="https://youtu.be/xCXx09gfhx4">
+                <image src="img/youtube_icon.png" height="45px">
+                <h4><strong>Video</strong></h4>
+                </a>
+            </div> -->
+            <div class="col-md-2 text-center">
+                <!-- <a href="https://github.com/kantaroslab/LTL_LLM"> -->
+                <image src="img/github.png" height="45px">
+                <h4><strong>Code (coming soon)</strong></h4>
+                <!-- <h6>Code (coming soon)</h6> -->
+                </a>
+            </div>
+            <div class="col-md-2 text-center">
+                <!-- <a href=""> -->
+                <image src="img/colab.png" height="45px">
+                <h4><strong>Demo (coming soon)</strong></h4>
+                <!-- <h6>Demo (coming soon)</h6> -->
+                </a>
+            </div>
+        </div>
+
+
+        <!-- <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <video id="v0" width="100%" preload="metadata" playsinline muted loop autoplay>
+                    <source src="videos/gazebo_task1.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div> -->
+
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-12">
+                <br>
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    This project addresses a new motion planning problem for mobile robots tasked with accomplishing multiple high-level sub-tasks, expressed using natural language (NL), in a temporal and logical order. To formally define such missions, we leverage LTL defined over NL-based atomic predicates modeling the considered NL-based sub-tasks. This is contrast to related planning approaches that define LTL tasks over atomic predicates capturing desired low-level system configurations. Our goal is to design robot plans that satisfy LTL tasks defined over NL-based atomic propositions. A novel technical challenge arising in this setup lies in reasoning about correctness of a robot plan with respect to such LTL-encoded tasks. To address this problem, we propose HERACLEs, a hierarchical conformal natural language planner, that relies on a novel integration of existing tools that include (i) automata theory to determine the NL-specified sub-task the robot should accomplish next to make mission progress; (ii) Large Language Models to design robot plans satisfying these sub-tasks; and (iii) conformal prediction to reason probabilistically about the correctness of the designed plans and mission satisfaction and to determine if external assistance is required. We provide extensive comparative experiments on mobile manipulation tasks. Paper can be found <a href="https://arxiv.org/abs/2309.10092">here</a>.
+            </div>
+        </div>
+
+        
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-12">
+                <h3 class="mt-4 mb-2">
+                    Framework Structure
+                </h3>
+                <p style="text-align:center;">
+                    <image src="img/framework.png" width="100%">
+                </p>
+                <p class="text-justify">
+                    More details coming soon.
+                </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-12">
+                <h3 class="mt-4 mb-2">
+                    Experiment Videos
+                </h3>
+                <div class="card mb-4 mt-4 text-dark bg-light">
+                    <h5 class="card-header">Select each option for corresponding video</h5>
+                    <div class="card-body">
+                        <select class="form-select" size="4" aria-label="size 4 select example" id="videoSelector">
+                            <option value="videos/gazebo_task1.mp4" 
+                            data-description="Deliver either Coke #1 or Coke #2 to X3">
+                                1) Reacting to unknown environments
+                            </option>  
+                            <option value="videos/gazebo_task2.mp4"
+                            data-description="Bring a drink to LC and bring another drink to LC">
+                                2) Reacting to ambiguous NL instructions
+                            </option>  
+                            <option value="videos/gazebo_task3.mp4"
+                            data-description="Eventually deliver Coke #1, Coke #2, and a water bottle to LC. Do not deliver either Coke until the bottle of water is delivered">
+                                3) Demonstration on complex mobile manipulation tasks
+                            </option> 
+                            <option value="videos/baseline.mp4" data-description="<a href='https://say-can.github.io'>Comparison Model</a>">
+                                4) Baseline Demonstration
+                            </option>               
+                        </select>
+
+                        <div class="col-md-12 mb-2">
+                            <video id="vid_saycan" width="100%" preload="metadata" playsinline muted loop autoplay>
+                                <source id="videoSource" src="videos/gazebo_task1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div id="extraText" style="display: none;">
+                            <!-- Extra text will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // JavaScript to show/hide extra text with line breaks based on the selected option
+            const videoSelector = document.getElementById('videoSelector');
+            const videoSource = document.getElementById('videoSource');
+            const extraText = document.getElementById('extraText');
+            
+            videoSelector.addEventListener('change', function () {
+                videoSource.src = this.value;
+                document.getElementById('vid_saycan').load();
+        
+                // Get the selected option and its data-description attribute
+                const selectedOption = this.options[this.selectedIndex];
+                const description = selectedOption.getAttribute('data-description');
+                
+                // Show or hide the extra text based on the presence of description
+                if (description) {
+                    extraText.style.display = 'block';
+        
+                    // Replace '\n' with '<br>' tags for line breaks
+                    extraText.innerHTML = description.replace('\n', '<br>');
+                } else {
+                    extraText.style.display = 'none';
+                    extraText.innerHTML = '';
+                }
+            });
+        </script>
+        
+
+
+        <!-- <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-8">
+                <h3 class="mt-4 mb-2">
+                    Action Space
+                </h3>
+                
+                <table class="tg">
+                    <thead>
+                      <tr>
+                        <th class="tg-dujc">Index</th>
+                        <th class="tg-dujc">Symbol</th>
+                        <th class="tg-dujc">Explanation</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="tg-dujc">1</td>
+                        <td class="tg-dujc">(1, LA)</td>
+                        <td class="tg-dujc">Go to LA</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">2</td>
+                        <td class="tg-dujc">(1, LB)</td>
+                        <td class="tg-dujc">Go to LB</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">3</td>
+                        <td class="tg-dujc">(1, LC)</td>
+                        <td class="tg-dujc">Go to LC</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">4</td>
+                        <td class="tg-dujc">(1, LD)</td>
+                        <td class="tg-dujc">Go to LD</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">5</td>
+                        <td class="tg-dujc">(1, LE)</td>
+                        <td class="tg-dujc">Go to LE</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">6</td>
+                        <td class="tg-dujc">(1, LF)</td>
+                        <td class="tg-dujc">Go to LF</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">7</td>
+                        <td class="tg-dujc">(2, B)</td>
+                        <td class="tg-dujc">Pick up Bottle B</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">8</td>
+                        <td class="tg-dujc">(2, A)</td>
+                        <td class="tg-dujc">Pick up Apple A</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">9</td>
+                        <td class="tg-dujc">(2, J)</td>
+                        <td class="tg-dujc">Pick up Banana J</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">10</td>
+                        <td class="tg-dujc">(2, P)</td>
+                        <td class="tg-dujc">Pick up Pen P</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">11</td>
+                        <td class="tg-dujc">(2, C1)</td>
+                        <td class="tg-dujc">Pick up Coke C1</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">12</td>
+                        <td class="tg-dujc">(2, C2)</td>
+                        <td class="tg-dujc">Pick up Coke C2</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">13</td>
+                        <td class="tg-dujc">(2, Ca)</td>
+                        <td class="tg-dujc">Pick up Can Ca</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">14</td>
+                        <td class="tg-dujc">(3)</td>
+                        <td class="tg-dujc">Put Down</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">15</td>
+                        <td class="tg-dujc">(4, F)</td>
+                        <td class="tg-dujc">Open door of Fridge F</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">16</td>
+                        <td class="tg-dujc">(4, D)</td>
+                        <td class="tg-dujc">Open door of Drawer D</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">17</td>
+                        <td class="tg-dujc">(5)</td>
+                        <td class="tg-dujc">Do nothing</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-dujc">18</td>
+                        <td class="tg-dujc">(6)</td>
+                        <td class="tg-dujc">Report Failure/Item Missing</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+
+
+
+    
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-12">
+                <h3>
+                    Citation 
+                </h3>
+                <a href="https://arxiv.org/abs/2309.10092">[arxiv version]</a>
+                <div class="form-group col-md-12">
+                    
+                    <textarea id="bibtex" class="form-control" rows="8" readonly>
+@misc{wang2023conformal,
+    title={Conformal Temporal Logic Planning using Large Language Models: Knowing When to Do What and When to Ask for Help}, 
+    author={Jun Wang and Jiaming Tong and Kaiyuan Tan and Yevgeniy Vorobeychik and Yiannis Kantaros},
+    year={2023},
+    eprint={2309.10092},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO}
+} 
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center mt-4">
+            <div class="col-md-10 col-lg-12">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                    We thank Samarth Kalluraya for useful feedback on the project. The website template is from <a href="https://code-as-policies.github.io/">Code as Policies</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
